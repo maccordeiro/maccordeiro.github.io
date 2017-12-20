@@ -1,10 +1,10 @@
-import Adapter from 'adapter.js';
-import bidfactory from 'bidfactory.js';
-import bidmanager from 'bidmanager.js';
-import * as utils from 'utils.js';
-import { STATUS } from 'constants.js';
-import adaptermanager from 'adaptermanager.js';
-import { loadScript } from 'adloader.js';
+import Adapter from './adapter.js';
+import bidfactory from './bidfactory.js';
+import bidmanager from './bidmanager.js';
+import * as utils from './utils.js';
+import { STATUS } from './constants.js';
+import adaptermanager from './adaptermanager.js';
+import { loadScript } from './adloader.js';
 
 const XhbAdapter = function XhbAdapter() {
   const baseAdapter = Adapter.createNew('xhb');
