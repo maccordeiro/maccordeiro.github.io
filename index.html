@@ -1,0 +1,137 @@
+<html lang="en" data-framework="javascript">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+
+<script>
+    var PREBID_TIMEOUT = 1000;
+    var googletag = googletag || {};
+    googletag.cmd = googletag.cmd || [];
+
+    function initAdserver() {
+        if (pbjs.initAdserverSet) return;
+        (function() {
+            var gads = document.createElement('script');
+            gads.async = true;
+            gads.type = 'text/javascript';
+            var useSSL = 'https:' == document.location.protocol;
+            gads.src = (useSSL ? 'https:' : 'http:') +
+            '//www.googletagservices.com/tag/js/gpt.js';
+            var node = document.getElementsByTagName('script')[0];
+            node.parentNode.insertBefore(gads, node);
+        })();
+        pbjs.initAdserverSet = true;
+    };
+
+    setTimeout(initAdserver, PREBID_TIMEOUT);
+
+    var pbjs = pbjs || {};
+    pbjs.que = pbjs.que || [];
+    (function() {
+
+        var pbjsEl = document.createElement("script"); pbjsEl.type = "module";
+        pbjsEl.async = true; 
+        pbjsEl.src = 'xhbBidAdapter.js';
+        var pbjsTargetEl = document.getElementsByTagName("head")[0];
+        pbjsTargetEl.insertBefore(pbjsEl, pbjsTargetEl.firstChild);
+    })();
+    
+    
+    
+    
+    pbjs.que.push(function() {
+
+        var adUnits = [{
+            code: 'div-gpt-ad-1491297786211-0',
+            sizes: [[300, 250]],
+            bids: [
+                // 1 ad unit can be targeted by multiple bids.
+                {
+                    bidder: 'xhb',
+                    params: {
+                       placementId: '11014240'
+                    }
+                }
+            ]
+        }];
+
+        pbjs.addAdUnits(adUnits);
+
+        pbjs.addCallback('adUnitBidsBack', function(adUnitCode){
+            console.log('ad unit bids back for : ' + adUnitCode);
+        });
+
+        pbjs.requestBids({
+            bidsBackHandler: function(bidResponses) {
+                initAdserver();
+            },
+
+        })
+        
+        pbjs.bidderSettings = {
+            xhb: {
+              sendStandardTargeting: false,
+              adserverTargeting: [
+                {
+                    key: "hb_xhb_deal",
+                    val: function(bidResponse) {
+                        return bidResponse.dealId;
+                    }
+                }, {
+                    key: "hb_xhb_adid",
+                    val: function(bidResponse) {
+                        return bidResponse.adId;
+                    }
+                }
+              ]
+            }
+        };
+    });
+</script>
+    
+<script>
+    googletag.cmd.push(function() {
+
+        var rightSlot = googletag.defineSlot('/2738692/Teste_HB_Xaxis', [[300, 250]], 'div-gpt-ad-1491297786211-0').addService(googletag.pubads());
+        pbjs.que.push(function() {
+            pbjs.setTargetingForGPTAsync();
+
+            console.log('Are all bids available? : ' + pbjs.allBidsAvailable());
+            console.log('Targeting params:')
+            console.log(pbjs.getAdserverTargeting());
+            console.log('Dumping all bid objects to console:');
+            console.log(JSON.stringify(pbjs.getBidResponses()));
+        });
+        googletag.pubads().enableSingleRequest();
+        googletag.enableServices();   
+        
+    });
+
+    function refreshBids() {
+        pbjs.que.push(function() {
+            pbjs.requestBids({
+                timeout: PREBID_TIMEOUT,
+                bidsBackHandler: function() {
+                    pbjs.setTargetingForGPTAsync();
+                    googletag.pubads().refresh(); 
+                }
+            });
+        });
+    }
+    </script>    
+</head>
+
+
+<body style="padding:0;margin:0">
+
+<!-- /2738692/Teste_HB_Xaxis -->
+<div id='div-gpt-ad-1491297786211-0'>
+<script>
+googletag.cmd.push(function() { googletag.display('div-gpt-ad-1491297786211-0'); });
+</script>
+</div>
+
+
+
+</body>
+
+</html>
