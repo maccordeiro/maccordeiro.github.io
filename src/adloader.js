@@ -1,4 +1,4 @@
-var utils = require('./utils');
+var utils = require('./utils.js');
 let _requestCache = {};
 
 // add a script tag to the page, used to add /jpt call to page
