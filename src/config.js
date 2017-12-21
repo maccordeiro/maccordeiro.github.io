@@ -7,8 +7,8 @@
  * Defining and access properties in this way is now deprecated, but these will
  * continue to work during a deprecation window.
  */
-import { isValidPriceConfig } from './cpmBucketManager';
-const utils = require('./utils');
+import { isValidPriceConfig } from './cpmBucketManager.js';
+const utils = require('./utils.js');
 
 const DEFAULT_DEBUG = false;
 const DEFAULT_BIDDER_TIMEOUT = 3000;
