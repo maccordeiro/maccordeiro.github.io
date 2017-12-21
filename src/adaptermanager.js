@@ -1,9 +1,9 @@
 /** @module adaptermanger */
 
-import { flatten, getBidderCodes, getDefinedParams, shuffle } from './utils';
-import { mapSizes } from './sizeMapping';
-import { processNativeAdUnitParams, nativeAdapters } from './native';
-import { newBidder } from './adapters/bidderFactory';
+import { flatten, getBidderCodes, getDefinedParams, shuffle } from './utils.js';
+import { mapSizes } from './sizeMapping.js';
+import { processNativeAdUnitParams, nativeAdapters } from './native.js';
+import { newBidder } from './adapters/bidderFactory.js';
 
 var utils = require('./utils.js');
 var CONSTANTS = require('./constants.json');
