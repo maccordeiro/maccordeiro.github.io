@@ -1,7 +1,7 @@
 /**
  * @module sizeMapping
  */
-import * as utils from './utils';
+import * as utils from './utils.js';
 let _win;
 
 function mapSizes(adUnit) {
