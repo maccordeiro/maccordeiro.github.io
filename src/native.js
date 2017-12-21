@@ -1,4 +1,4 @@
-import { deepAccess, getBidRequest, logError, triggerPixel } from './utils.js';
+import { deepAccess, getBidRequest, logError, triggerPixel } from '/utils.js';
 
 export const nativeAdapters = [];
 

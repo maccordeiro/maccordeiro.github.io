@@ -1,4 +1,4 @@
-const utils = require('src/utils');
+const utils = require('src/utils.js');
 
 const _defaultPrecision = 2;
 const _lgPriceConfig = {

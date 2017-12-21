@@ -1,15 +1,15 @@
-import { uniques, flatten, adUnitsFilter, getBidderRequest } from './utils.js';
-import { getPriceBucketString } from './cpmBucketManager.js';
-import { NATIVE_KEYS, nativeBidIsValid } from './native.js';
-import { isValidVideoBid } from './video.js';
-import { getCacheUrl, store } from './videoCache.js';
-import { Renderer } from './src/Renderer.js';
-import { config } from './src/config.js';
+import { uniques, flatten, adUnitsFilter, getBidderRequest } from '/utils.js';
+import { getPriceBucketString } from '/cpmBucketManager.js';
+import { NATIVE_KEYS, nativeBidIsValid } from '/native.js';
+import { isValidVideoBid } from '/video.js';
+import { getCacheUrl, store } from '/videoCache.js';
+import { Renderer } from '/src/Renderer.js';
+import { config } from '/src/config.js';
 
-var CONSTANTS = require('./constants.json');
+var CONSTANTS = require('/constants.json');
 var AUCTION_END = CONSTANTS.EVENTS.AUCTION_END;
-var utils = require('./utils.js');
-var events = require('./events.js');
+var utils = require('/utils.js');
+var events = require('/events.js');
 
 var externalCallbacks = {byAdUnit: [], all: [], oneTime: null, timer: false};
 var defaultBidderSettingsMap = {};

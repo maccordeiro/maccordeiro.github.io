@@ -1,5 +1,5 @@
-import { loadScript } from './adloader';
-import * as utils from './utils';
+import { loadScript } from '/adloader';
+import * as utils from '/utils';
 
 /**
  * @typedef {object} Renderer
