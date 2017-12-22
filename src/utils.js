@@ -1,5 +1,5 @@
-import { config } from '/config.js';
-var CONSTANTS = require('/constants.json');
+import { config } from './config.js';
+var CONSTANTS = require('./constants.json');
 
 var _loggingChecked = false;
 
